@@ -1,0 +1,31 @@
+//	This removes padding, max-width, etc
+@mixin resetDrupalSection() {
+	padding: var(--component-padding, 0);
+
+	.content.py-3 {
+		max-width: var(--content-mw, none);
+		margin: var(--content-margin, 0);
+		padding: var(--content-padding, 0) !important;
+	}
+}
+
+//	Grid collapses at a specified column width (default is 20em)
+//	This offers two methods: flex and grid. Flex supports reversing
+//	columns; grid doesn't.
+@mixin autoCollapse($minColWidth:20rem, $method:flex) {
+	@if $method == "flex" {
+		display: flex;
+		flex-wrap: wrap;
+
+		//	class-agnostic columns
+		& > * {
+			flex: 1 1 $minColWidth;
+		}
+	}
+	@else {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax($minColWidth, 1fr));		
+	}
+}
+
+

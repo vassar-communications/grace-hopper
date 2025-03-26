@@ -1,0 +1,44 @@
+/* imageFeature */
+
+.component--main-content.imageFeatureRow {
+	//	removes the default padding, max-width, etc
+	@include resetDrupalSection();
+
+	min-height: 100vh;
+
+	//	default is "center", so doesn't need to be specified
+	.imageAlignment-left {
+		img {
+			object-position: left;	
+		}	
+	}
+	.imageAlignment-right {
+		img {
+			object-position: left;	
+		}	
+	}	
+	.imageFeature {
+		@include autoCollapse();
+		
+		&.imageCol-onRight {
+			flex-direction: row-reverse;
+		}
+		
+		&.mh-100vh {
+			min-height: 100vh;
+		}
+	}
+	.imageColumn {
+		position: relative;
+	
+		img {
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
+	}
+}
+	
+
+
