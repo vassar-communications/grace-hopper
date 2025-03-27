@@ -1,3 +1,30 @@
+/* _utilities/_drupal-specific */
+.clearDrupalFormatting {
+  padding: var(--component-padding, 0);
+}
+.clearDrupalFormatting .content.py-3 {
+  max-width: var(--content-mw, none);
+  margin: var(--content-margin, 0);
+  padding: var(--content-padding, 0) !important;
+}
+
+/* _layout-cols */
+.layout-grid {
+  display: flex;
+  flex-wrap: wrap;
+}
+.layout-grid > * {
+  flex: 1 1 20rem;
+}
+
+.layout-2cols {
+  display: flex;
+  flex-wrap: wrap;
+}
+.layout-2cols > * {
+  flex: 1 1 max(20rem, 50vw);
+}
+
 /* imageFeature */
 .component--main-content.imageFeatureRow {
   padding: var(--component-padding, 0);
@@ -12,7 +39,7 @@
   object-position: left;
 }
 .component--main-content.imageFeatureRow .imageAlignment-right img {
-  object-position: left;
+  object-position: right;
 }
 .component--main-content.imageFeatureRow .imageFeature {
   display: flex;
@@ -35,4 +62,37 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+/*	_linkCards-fullBleed */
+.linkCard-fullBleed {
+  aspect-ratio: var(--lcardfb-aspectRatio, 16 / 9);
+  overflow: hidden;
+  position: relative;
+}
+.linkCard-fullBleed .linkCard_image {
+  position: relative;
+  height: 100%;
+  width: 100%;
+}
+.linkCard-fullBleed img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.linkCard_linkContainer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  display: flex;
+  align-items: end;
+  padding: var(--lcardfb-padding, 1rem 2rem);
+}
+.linkCard_linkContainer a {
+  font-family: var(--lcardfb-fontFamily, "acumin-pro-extra-condensed","Helvetica Neue","Helvetica","Arial",sans-serif);
 }

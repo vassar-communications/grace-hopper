@@ -14,11 +14,11 @@
 	}
 	.imageAlignment-right {
 		img {
-			object-position: left;	
+			object-position: right;	
 		}	
 	}	
 	.imageFeature {
-		@include autoCollapse();
+		@include autoCollapseCols();
 		
 		&.imageCol-onRight {
 			flex-direction: row-reverse;

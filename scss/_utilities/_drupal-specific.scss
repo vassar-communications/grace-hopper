@@ -1,0 +1,5 @@
+/* _utilities/_drupal-specific */
+
+.clearDrupalFormatting {
+	@include resetDrupalSection();	
+}

@@ -1,0 +1,16 @@
+/* _layout-cols */
+//	A generic grid with no specified number of columns
+
+.layout-grid {
+	@include autoCollapseCols();	
+}
+
+
+
+//	General-purpose collapsing columns
+//	Use these when possible; maybe something more specific is needed
+//	elsewhere, but this is a pretty common pattern.
+
+.layout-2cols {
+	@include twoCols-autoCollapse;	
+}

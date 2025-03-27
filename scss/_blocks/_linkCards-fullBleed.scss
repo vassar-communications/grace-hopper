@@ -1,0 +1,39 @@
+/*	_linkCards-fullBleed */
+
+$namespace: lcardfb;
+
+.linkCard-fullBleed {
+//	aspect-ratio: var(--linkcard-aspectRatio, 16 / 9);
+	
+	@include hook(aspect-ratio, "16 / 9");
+	
+	overflow: hidden;
+	position: relative;
+	
+	.linkCard_image {
+		position: relative;
+		height: 100%;
+		width: 100%;
+	}
+	img {
+		@include objectFit();
+	}
+}
+.linkCard_linkContainer {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 10;
+	display: flex;
+	align-items: end;
+	
+	@include hook(padding, 1rem 2rem);
+	
+	a {
+		@include hook(font-family, '"acumin-pro-extra-condensed","Helvetica Neue","Helvetica","Arial",sans-serif');
+	}
+}
+
+
