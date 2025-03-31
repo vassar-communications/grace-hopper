@@ -1,3 +1,4 @@
+
 /* imageFeature */
 
 .component--main-content.imageFeatureRow {
@@ -18,16 +19,23 @@
 		}	
 	}	
 	.imageFeature {
-		@include autoCollapseCols();
+//		@include autoCollapseCols();
+		@include cols();
 		
 		&.imageCol-onRight {
 			flex-direction: row-reverse;
+			
+			.textColumn {
+				justify-content: end;
+			}
 		}
 		
 		&.mh-100vh {
 			min-height: 100vh;
 		}
 	}
+
+	//	IMAGE
 	.imageColumn {
 		position: relative;
 	
@@ -37,8 +45,21 @@
 			height: 100%;
 			object-fit: cover;
 		}
-	}
+	}	
+	
+	//	TEXT
+	.textColumn-content {
+		max-width: 36rem;
+	}	
+	.textColumn {
+		$namespace: imageFeature_textColumn !global;
+
+		display: flex;
+		align-items: center;
+		@include flr(padding, 1rem, 4rem);
+	}	
 }
 	
+
 
 
