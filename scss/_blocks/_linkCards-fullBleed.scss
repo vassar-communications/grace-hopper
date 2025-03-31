@@ -1,6 +1,6 @@
 /*	_linkCards-fullBleed */
 
-$namespace: lcardfb;
+$namespace: lCardFB;
 
 .linkCard-fullBleed {
 //	aspect-ratio: var(--linkcard-aspectRatio, 16 / 9);
@@ -15,6 +15,7 @@ $namespace: lcardfb;
 		height: 100%;
 		width: 100%;
 		transition: transform 0.4s;
+		@include hook(filter, none);
 	}
 	img {
 		@include objectFit();
@@ -30,7 +31,6 @@ $namespace: lcardfb;
 }
 
 .linkCard_link {
-	@include flr(font-size, 2rem, 3rem);
 	@include stretch-link();
 }
 
@@ -42,13 +42,39 @@ $namespace: lcardfb;
 	height: 100%;
 	z-index: 10;
 	display: flex;
-	align-items: end;
-	
-	@include hook(padding, 1rem 2rem);
+	align-items: end;	
 	
 	a {
+		@include flr(font-size, 2rem, 3rem);
 		@include hook(font-family, '"acumin-pro-extra-condensed","Helvetica Neue","Helvetica","Arial",sans-serif');
+		@include hook(line-height, 1);
+		
+//		background-image: linear-gradient(to top, black, transparent);
+		background-image: radial-gradient(farthest-corner at 0% 100%, var(--#{$namespace}-maskColor, rgba(0,0,0,0.4)) 20%, var(--#{$namespace}-maskColor, rgba(0,0,0,0.4)) 40%,  transparent 70%, transparent 100%);
+		
+		//	Padding is longer on the right side so the gradient will
+		//	cover more of the text
+		@include hook(padding, 1rem 6rem 1rem 2rem);
 	}
 }
+
+
+//	VARIATIONS
+//	The following are different styles of this component
+
+.linkCard-fullBleed {
+	&.style-classic {
+		--lCardFB-filter: grayscale(1);
+	}	
+}
+
+
+
+
+
+
+
+
+
 
 

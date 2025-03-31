@@ -1,0 +1,5 @@
+//	override the Drupal theme hover state
+a:not(.btn):where(:not(.toolbar-icon)):hover,
+a:visited:not(.btn):where(:not(.toolbar-icon)):hover {
+	background-color: var(--bg-color-hover, none);
+}

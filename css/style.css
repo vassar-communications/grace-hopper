@@ -8,6 +8,11 @@
   padding: var(--content-padding, 0) !important;
 }
 
+a:not(.btn):where(:not(.toolbar-icon)):hover,
+a:visited:not(.btn):where(:not(.toolbar-icon)):hover {
+  background-color: var(--bg-color-hover, none);
+}
+
 /* _layout-cols */
 .layout-grid {
   display: flex;
@@ -63,9 +68,9 @@
   position: relative;
 }
 .component--main-content.imageFeatureRow .imageColumn img {
-  position: absolute;
+  position: var(--imageFeature_imageColumn-position, absolute);
   width: 100%;
-  height: 100%;
+  height: var(--imageFeature_imageColumn-height, 100%);
   object-fit: cover;
 }
 .component--main-content.imageFeatureRow .textColumn-content {
@@ -79,7 +84,7 @@
 
 /*	_linkCards-fullBleed */
 .linkCard-fullBleed {
-  aspect-ratio: var(--lcardfb-aspectRatio, 16 / 9);
+  aspect-ratio: var(--lCardFB-aspectRatio, 16 / 9);
   overflow: hidden;
   position: relative;
 }
@@ -88,6 +93,7 @@
   height: 100%;
   width: 100%;
   transition: transform 0.4s;
+  filter: var(--lCardFB-filter, none);
 }
 .linkCard-fullBleed img {
   position: absolute;
@@ -99,9 +105,6 @@
   transform: scale(1.1);
 }
 
-.linkCard_link {
-  font-size: var(--lcardfb-fontSize, clamp(2rem, 3vw, 3rem));
-}
 .linkCard_link:after {
   content: "";
   position: absolute;
@@ -120,8 +123,15 @@
   z-index: 10;
   display: flex;
   align-items: end;
-  padding: var(--lcardfb-padding, 1rem 2rem);
 }
 .linkCard_linkContainer a {
-  font-family: var(--lcardfb-fontFamily, "acumin-pro-extra-condensed","Helvetica Neue","Helvetica","Arial",sans-serif);
+  font-size: var(--lCardFB-fontSize, clamp(2rem, 3vw, 3rem));
+  font-family: var(--lCardFB-fontFamily, "acumin-pro-extra-condensed","Helvetica Neue","Helvetica","Arial",sans-serif);
+  line-height: var(--lCardFB-lineHeight, 1);
+  background-image: radial-gradient(farthest-corner at 0% 100%, var(--lCardFB-maskColor, rgba(0, 0, 0, 0.4)) 20%, var(--lCardFB-maskColor, rgba(0, 0, 0, 0.4)) 40%, transparent 70%, transparent 100%);
+  padding: var(--lCardFB-padding, 1rem 6rem 1rem 2rem);
+}
+
+.linkCard-fullBleed.style-classic {
+  --lCardFB-filter: grayscale(1);
 }
