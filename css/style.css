@@ -20,9 +20,10 @@
 .layout-2cols {
   display: flex;
   flex-wrap: wrap;
+  gap: var(--na-gap, 1rem);
 }
 .layout-2cols > * {
-  flex: 1 1 max(20rem, 50vw);
+  flex: 1 1 max(20rem, calc(50% - var(--na-gap, 1rem)));
 }
 
 /* imageFeature */
@@ -74,12 +75,28 @@
   position: relative;
   height: 100%;
   width: 100%;
+  transition: transform 0.4s;
 }
 .linkCard-fullBleed img {
   position: absolute;
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+.linkCard-fullBleed:has(:hover) .linkCard_image, .linkCard-fullBleed:has(:focus) .linkCard_image {
+  transform: scale(1.1);
+}
+
+.linkCard_link {
+  font-size: clamp(2rem, 3vw, 3rem);
+}
+.linkCard_link:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }
 
 .linkCard_linkContainer {

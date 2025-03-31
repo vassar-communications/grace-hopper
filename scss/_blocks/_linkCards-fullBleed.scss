@@ -14,11 +14,26 @@ $namespace: lcardfb;
 		position: relative;
 		height: 100%;
 		width: 100%;
+		transition: transform 0.4s;
 	}
 	img {
 		@include objectFit();
+	}	
+
+
+	//	All hover and focus states go here
+	@include hot() {
+		.linkCard_image {
+			transform: scale(1.1);
+		}
 	}
 }
+
+.linkCard_link {
+	@include flr(font-size, 2rem, 3rem);
+	@include stretch-link();
+}
+
 .linkCard_linkContainer {
 	position: absolute;
 	top: 0;
