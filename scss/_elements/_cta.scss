@@ -1,0 +1,192 @@
+//  Just for display
+:root {
+  --color-vassar-burgundy: #951829;
+  --color-vassar-dark-burgundy: #641a2b;
+  --color-vassar-red: #e00;
+  --color-vassar-darkest-burgundy: #3d0f1a;
+  --color-vassar-darkgray: #63666a;
+  --color-vassar-charcoal: #333;
+  --color-vassar-cream: #f8f7f5;
+  --color-vassar-verylightgray: #eeeeee;
+}
+
+
+//  All special links (as in, other than the default links)
+//  =========
+
+.btn,
+.link--cta,
+.linked-list a {
+  &,
+  &:visited {
+	color: var(--scheme-link-color, var(--color-vassar-burgundy)) !important;
+	background-color: var(--scheme-link-bg-color, transparent) !important;
+	
+	
+	&:hover,
+	&:focus {
+	  color: var(
+		--scheme-link-color-hover,
+		var(--scheme-link-color, var(--color-vassar-burgundy))
+	  ) !important;
+	  background-color: var(--scheme-link-bg-color-hover, transparent) !important;
+	}
+  }
+}
+
+
+//  Buttons
+//  =======
+
+.btn {
+  
+  border: 2px solid var(--scheme-link-bg-color) !important;
+  
+  --scheme-link-bg-color: var(--scheme-text-color, var(--color-vassar-burgundy));
+  --scheme-link-color: var(--scheme-bg-color, #fff);
+
+	--scheme-link-bg-color-hover: var(--scheme-bg-color, #fff);
+  --scheme-link-color-hover: var(--scheme-text-color, var(--color-vassar-burgundy)); 
+
+  
+}
+
+
+
+//  Linked list
+//  ===========
+
+.linked-list {
+  padding-left: 0;
+  margin: 1rem 0;
+
+  li {
+	list-style: none;
+	border-top: 1px solid var(--accent-border-verylight, #ddd);
+	&:last-child {
+	  border-bottom: 1px solid var(--accent-border-verylight, #ddd);
+	}
+  }
+  a {
+	font-variation-settings: "wght" 400;
+	padding: 0.4rem;
+	font-size: 1.1rem;
+	display: flex;
+	align-items: center;
+	text-decoration: none;
+	transition: 0.3s all ease;
+
+	&:after {
+	  content: "→";
+	  width: 1.4rem;
+	  height: 1.4rem;
+	  display: inline-flex;
+	  justify-content: center;
+	  font-size: 1.2rem;
+	  align-items: center;
+	  transition: 0.4s all ease;
+	  border-radius: 50%;
+	  margin-left: 0.3rem;
+	  line-height: 1;
+	  padding: 0.2rem;
+	}
+	
+	--scheme-link-bg-color-hover: var(--accent-bgColor-verylight, #eee);
+	
+	&:hover,
+	&:focus {
+	  &:after {
+		background: var(--scheme-link-color, var(--color-vassar-burgundy));
+		color: var(--scheme-bg-color, #fff);
+	  }
+	}
+  }
+}
+
+.link--cta {
+  color: var(--scheme-link-color, var(--color-vassar-burgundy));
+
+  display: inline-block;
+  line-height: 1.5;
+  padding: 0.5rem 1rem;
+  font-size: 1.2rem;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+	border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+
+  text-decoration: none;
+  color: var(--scheme-link-color, var(--color-vassar-burgundy));
+
+  &:after {
+	//  font-weight has to be bold
+	//  or icon won't show
+	font-weight: bold;
+	font-family: "Font Awesome 6 Free";
+	content: "\f061";
+	border: 2px solid var(--scheme-link-color, var(--color-vassar-burgundy));
+	background: var(--arrow-icon-bg, var(--scheme-bg-color));
+	color: var(
+	  --arrow-icon-color,
+	  var(--scheme-link-color, var(--color-vassar-burgundy))
+	);
+	border-radius: 50%;
+	width: 2rem;
+	height: 2rem;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	margin-left: 0.75rem;
+	transition: 0.4s all ease;
+	line-height: 0;
+  }
+
+  &:hover,
+  &:focus {
+	--arrow-icon-bg: var(--scheme-link-color, var(--color-vassar-burgundy));
+	--arrow-icon-color: var(--scheme-bg-color, #fff);
+  }
+}
+
+.btn.arrow:after,
+.has-arrow:after {
+  font-family: "Font Awesome 6 Free";
+  content: "\f061";
+  margin-left: 0.75rem;
+  transition: 0.4s all ease;
+}
+.btn-primary {
+  color: #fff;
+  background-color: #951829;
+  border-color: #951829;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.15),
+	0 1px 1px rgba(14, 14, 14, 0.075);
+}
+
+.btn {
+  display: inline-block;
+  font-weight: 600;
+  line-height: 1.5;
+  color: #1e1e1e;
+  text-align: center;
+  vertical-align: middle;
+  cursor: pointer;
+  user-select: none;
+  background-color: transparent;
+  border: 1px solid transparent;
+  padding: 0.5rem 1rem;
+  font-size: 1.2rem;
+  border-radius: 1.75rem;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+	border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+
+.scheme-burgundy {
+  --scheme-bg-color: var(--color-vassar-burgundy);
+  --scheme-text-color: var(--color-vassar-cream);
+  --scheme-link-color: var(--color-vassar-cream);
+  --scheme-link-hover-bg-color: var(--color-vassar-burgundy);
+  --scheme-link-hover-color: var(--color-vassar-cream);
+
+  --accent-border-verylight: rgba(255, 255, 255, 0.3);
+  --accent-bgColor-verylight: rgba(255, 255, 255, 0.2);
+}

@@ -1,0 +1,15 @@
+/*	_utilities/_typography
+*/
+
+:root {
+	--serif-fontSize-largest: clamp(2rem, 4vw, 4rem);	
+}
+
+
+.introText-largest {
+	$namespace: introText-largest !global;
+
+	--text-lineHeight: 1;
+	--text-fontFamily: "freight-big-pro", "Georgia", "Times", "Times New Roman", serif;	
+	@include hook(--text-fontSize, var(--serif-fontSize-largest));
+}

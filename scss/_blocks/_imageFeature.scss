@@ -6,6 +6,16 @@
 	@include resetDrupalSection();
 
 	min-height: 100vh;
+	
+	h3.featureImage-title {
+		$namespace: h3-featureImage-title !global;
+		@include hook(font-size, clamp(1.2rem, 2.3vw, 2.3rem));
+		@include hook(color, #641a2b);
+
+		font-variation-settings: "wght" 700;
+		letter-spacing: -0.04rem;
+		line-height: 1.1;
+	}
 
 	//	default is "center", so doesn't need to be specified
 	.imageAlignment-left {
