@@ -1,5 +1,19 @@
-//	override the Drupal theme hover state
-a:not(.btn):where(:not(.toolbar-icon)):hover,
-a:visited:not(.btn):where(:not(.toolbar-icon)):hover {
-	background-color: var(--bg-color-hover, none);
+.field--name-field-page-components {
+//	p, li {
+		//	override the Drupal theme hover state
+		a:not(.btn):where(:not(.toolbar-icon)),
+		a:visited:not(.btn):where(:not(.toolbar-icon)) {
+			background-color: var(--bg-color, none) !important;
+			color: var(--text-color, none) !important;
+			text-decoration: var(--text-underline, underline) !important;
+		}
+
+		//	override the Drupal theme hover state
+		a:not(.btn):where(:not(.toolbar-icon)):hover,
+		a:not(.btn):where(:not(.toolbar-icon)):focus,
+		a:visited:not(.btn):where(:not(.toolbar-icon)):hover,
+		a:visited:not(.btn):where(:not(.toolbar-icon)):focus {
+			background-color: var(--bg-color-hover, none) !important;
+		}
+//	}
 }

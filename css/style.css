@@ -9,9 +9,17 @@
   padding: var(--content-padding, 0) !important;
 }
 
-a:not(.btn):where(:not(.toolbar-icon)):hover,
-a:visited:not(.btn):where(:not(.toolbar-icon)):hover {
-  background-color: var(--bg-color-hover, none);
+.field--name-field-page-components a:not(.btn):where(:not(.toolbar-icon)),
+.field--name-field-page-components a:visited:not(.btn):where(:not(.toolbar-icon)) {
+  background-color: var(--bg-color, none) !important;
+  color: var(--text-color, none) !important;
+  text-decoration: var(--text-underline, underline) !important;
+}
+.field--name-field-page-components a:not(.btn):where(:not(.toolbar-icon)):hover,
+.field--name-field-page-components a:not(.btn):where(:not(.toolbar-icon)):focus,
+.field--name-field-page-components a:visited:not(.btn):where(:not(.toolbar-icon)):hover,
+.field--name-field-page-components a:visited:not(.btn):where(:not(.toolbar-icon)):focus {
+  background-color: var(--bg-color-hover, none) !important;
 }
 
 /*	_utilities/_typography
@@ -24,6 +32,10 @@ a:visited:not(.btn):where(:not(.toolbar-icon)):hover {
   --text-lineHeight: 1;
   --text-fontFamily: "freight-big-pro", "Georgia", "Times", "Times New Roman", serif;
   --text-fontSize: var(--introText-largest-textFontSize, var(--serif-fontSize-largest));
+}
+
+.fs-4 {
+  --text-fontSize: 1.65rem !important;
 }
 
 /* _layout-cols */
@@ -60,8 +72,8 @@ a:visited:not(.btn):where(:not(.toolbar-icon)):hover {
 .link--cta:visited,
 .linked-list a,
 .linked-list a:visited {
-  color: var(--scheme-link-color, var(--color-vassar-burgundy)) !important;
-  background-color: var(--scheme-link-bg-color, transparent) !important;
+  --text-color: var(--scheme-link-color, var(--color-vassar-burgundy)) !important;
+  --bg-color: var(--scheme-link-bg-color, transparent) !important;
 }
 .btn:hover, .btn:focus, .btn:visited:hover, .btn:visited:focus,
 .link--cta:hover,
@@ -72,8 +84,11 @@ a:visited:not(.btn):where(:not(.toolbar-icon)):hover {
 .linked-list a:focus,
 .linked-list a:visited:hover,
 .linked-list a:visited:focus {
-  color: var(--scheme-link-color-hover, var(--scheme-link-color, var(--color-vassar-burgundy))) !important;
-  background-color: var(--scheme-link-bg-color-hover, transparent) !important;
+  --text-color: var(
+  --scheme-link-color-hover,
+  var(--scheme-link-color, var(--color-vassar-burgundy))
+   ) !important;
+  --bg-color: var(--scheme-link-bg-color-hover, transparent) !important;
 }
 
 .btn {
@@ -226,6 +241,34 @@ a:visited:not(.btn):where(:not(.toolbar-icon)):hover {
   clip-path: inset(0 0 0 0);
 }
 
+@keyframes scopeIn {
+  from {
+    transform: scale(1.2);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+@keyframes zoomIn {
+  from {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+@keyframes wipeIn {
+  from {
+    clip-path: inset(0 100% 0 0);
+  }
+  to {
+    clip-path: inset(0 0 0 0);
+  }
+}
 .hero-home .field--name-field-hero-image-display-title {
   background-color: rgba(0, 0, 0, 0.6);
   position: fixed;
@@ -241,6 +284,21 @@ a:visited:not(.btn):where(:not(.toolbar-icon)):hover {
 .hero-home .field--name-field-hero-image-display-title h1 {
   text-align: center;
   font-size: clamp(2rem, 8vw, 8rem) !important;
+  animation-delay: 0.4s;
+  animation-name: wipeIn;
+  animation-duration: 1s;
+  animation-timing-function: ease-in;
+  animation-fill-mode: forwards;
+  clip-path: inset(0 100% 0 0);
+}
+
+.component.component--hero-image.hero-home {
+  animation-name: scopeIn;
+  animation-duration: 1.2s;
+  animation-timing-function: ease;
+  animation-fill-mode: forwards;
+  opacity: 0;
+  transform: scale(1.01);
 }
 
 /* imageFeature */
@@ -334,6 +392,11 @@ a:visited:not(.btn):where(:not(.toolbar-icon)):hover {
 }
 
 .linkCard_linkContainer {
+  --text-color: #fff;
+  --text-underline: none;
+}
+
+.linkCard_linkContainer {
   position: absolute;
   top: 0;
   left: 0;
@@ -344,13 +407,95 @@ a:visited:not(.btn):where(:not(.toolbar-icon)):hover {
   align-items: end;
 }
 .linkCard_linkContainer a {
-  font-size: var(--lCardFB-fontSize, clamp(2rem, 3vw, 3rem));
+  font-size: var(--lCardFB-fontSize, clamp(2rem, 4vw, 4rem));
   font-family: var(--lCardFB-fontFamily, "acumin-pro-extra-condensed","Helvetica Neue","Helvetica","Arial",sans-serif);
   line-height: var(--lCardFB-lineHeight, 1);
-  background-image: radial-gradient(farthest-corner at 0% 100%, var(--lCardFB-maskColor, rgba(0, 0, 0, 0.4)) 20%, var(--lCardFB-maskColor, rgba(0, 0, 0, 0.4)) 40%, transparent 70%, transparent 100%);
-  padding: var(--lCardFB-padding, 1rem 6rem 1rem 2rem);
+  background-image: radial-gradient(farthest-corner at 0% 100%, var(--lCardFB-maskColor, rgba(0, 0, 0, 0.6)) 20%, var(--lCardFB-maskColor, rgba(0, 0, 0, 0.6)) 40%, transparent 70%, transparent 100%);
+  padding: var(--lCardFB-padding, 1rem 6rem 2rem 2.6rem);
 }
 
 .linkCard-fullBleed.style-classic {
   --lCardFB-filter: grayscale(1);
+}
+
+.anim-reveal-sequential-fast > *:nth-child(1) {
+  animation-delay: 0s;
+}
+.anim-reveal-sequential-fast > *:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.anim-reveal-sequential-fast > *:nth-child(3) {
+  animation-delay: 0.4s;
+}
+.anim-reveal-sequential-fast > *:nth-child(4) {
+  animation-delay: 0.6s;
+}
+.anim-reveal-sequential-fast > *:nth-child(5) {
+  animation-delay: 0.8s;
+}
+.anim-reveal-sequential-fast > *:nth-child(6) {
+  animation-delay: 1s;
+}
+.anim-reveal-sequential-fast > *:nth-child(7) {
+  animation-delay: 1.2s;
+}
+.anim-reveal-sequential-fast > *:nth-child(8) {
+  animation-delay: 1.4s;
+}
+.anim-reveal-sequential-fast > *:nth-child(9) {
+  animation-delay: 1.6s;
+}
+.anim-reveal-sequential-fast > *:nth-child(10) {
+  animation-delay: 1.8s;
+}
+.anim-reveal-sequential-fast > *:nth-child(11) {
+  animation-delay: 2s;
+}
+.anim-reveal-sequential-fast > *:nth-child(12) {
+  animation-delay: 2.2s;
+}
+.anim-reveal-sequential-fast > *:nth-child(13) {
+  animation-delay: 2.4s;
+}
+.anim-reveal-sequential-fast > *:nth-child(14) {
+  animation-delay: 2.6s;
+}
+.anim-reveal-sequential-fast > *:nth-child(15) {
+  animation-delay: 2.8s;
+}
+.anim-reveal-sequential-fast > *:nth-child(16) {
+  animation-delay: 3s;
+}
+.anim-reveal-sequential-fast > *:nth-child(17) {
+  animation-delay: 3.2s;
+}
+.anim-reveal-sequential-fast > *:nth-child(18) {
+  animation-delay: 3.4s;
+}
+.anim-reveal-sequential-fast > *:nth-child(19) {
+  animation-delay: 3.6s;
+}
+.anim-reveal-sequential-fast > *:nth-child(20) {
+  animation-delay: 3.8s;
+}
+
+.linkCard-fullBleed {
+  opacity: 0;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.top-75pfrom-topOfWindow .linkCard-fullBleed {
+  animation-name: fadeIn;
+  animation-duration: 1s;
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: forwards;
+  /* Initially invisible */
+  opacity: 0;
 }

@@ -13,3 +13,7 @@
 	--text-fontFamily: "freight-big-pro", "Georgia", "Times", "Times New Roman", serif;	
 	@include hook(--text-fontSize, var(--serif-fontSize-largest));
 }
+
+.fs-4 {
+	--text-fontSize: 1.65rem !important;
+}

@@ -32,6 +32,38 @@
 }
 
 
+@keyframes scopeIn {
+  from {
+	  transform: scale(1.2);
+	opacity: 0;
+  }
+  to {
+	  transform: scale(1);
+	opacity: 1;
+  }
+}
+
+@keyframes zoomIn {
+  from {
+	  transform: scale(0.8);
+	opacity: 0;
+  }
+  to {
+	  transform: scale(1);
+	opacity: 1;
+  }
+}
+
+@keyframes wipeIn {
+	from {
+		clip-path: inset(0 100% 0 0);
+	}
+	to {
+		clip-path: inset(0 0 0 0);
+	}
+}
+
+
 
 .hero-home .field--name-field-hero-image-display-title {
 	background-color: rgba(0,0,0,0.6);
@@ -50,6 +82,33 @@
 	h1 {
 		text-align: center;
 		font-size: clamp(2rem, 8vw, 8rem) !important;
+
+		animation-delay: 0.4s;
+		animation-name: wipeIn;
+		animation-duration: 1s;
+		animation-timing-function: ease-in;
+		animation-fill-mode: forwards;
+//		opacity: 0;
+		clip-path: inset(0 100% 0 0);
+
 	}
 }
+
+
+
+.component.component--hero-image.hero-home {
+	animation-name: scopeIn;
+	animation-duration: 1.2s;
+	animation-timing-function: ease;
+	animation-fill-mode: forwards;
+	opacity: 0;
+	transform: scale(1.01);
+}
+
+
+
+
+
+
+
 

@@ -35,6 +35,11 @@ $namespace: lCardFB;
 }
 
 .linkCard_linkContainer {
+	--text-color: #fff;
+	--text-underline: none;
+}
+
+.linkCard_linkContainer {
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -45,16 +50,16 @@ $namespace: lCardFB;
 	align-items: end;	
 	
 	a {
-		@include flr(font-size, 2rem, 3rem);
+		@include flr(font-size, 2rem, 4rem);
 		@include hook(font-family, '"acumin-pro-extra-condensed","Helvetica Neue","Helvetica","Arial",sans-serif');
 		@include hook(line-height, 1);
 		
 //		background-image: linear-gradient(to top, black, transparent);
-		background-image: radial-gradient(farthest-corner at 0% 100%, var(--#{$namespace}-maskColor, rgba(0,0,0,0.4)) 20%, var(--#{$namespace}-maskColor, rgba(0,0,0,0.4)) 40%,  transparent 70%, transparent 100%);
+		background-image: radial-gradient(farthest-corner at 0% 100%, var(--#{$namespace}-maskColor, rgba(0,0,0,0.6)) 20%, var(--#{$namespace}-maskColor, rgba(0,0,0,0.6)) 40%,  transparent 70%, transparent 100%);
 		
 		//	Padding is longer on the right side so the gradient will
 		//	cover more of the text
-		@include hook(padding, 1rem 6rem 1rem 2rem);
+		@include hook(padding, 1rem 6rem 2rem 2.6rem);
 	}
 }
 
@@ -62,14 +67,45 @@ $namespace: lCardFB;
 //	VARIATIONS
 //	The following are different styles of this component
 
+
 .linkCard-fullBleed {
 	&.style-classic {
 		--lCardFB-filter: grayscale(1);
 	}	
 }
 
+//	the specific animation doesn't matter
+.anim-reveal-sequential-fast {
+	@include bp-sequence((gap: 0.2s));
+}
+
+.linkCard-fullBleed {
+	opacity: 0;
+}
+
+@keyframes fadeIn {
+  from {
+	opacity: 0;
+  }
+  to {
+	opacity: 1;
+  }
+}
 
 
+.top-75pfrom-topOfWindow {
+	.linkCard-fullBleed {
+		//	define these without using the shorthand
+		//	since the shorthand will override the animation-delay
+		//	applied by the sequential reveal
+		animation-name: fadeIn;
+		animation-duration: 1s;
+		animation-timing-function: ease-in-out;
+		animation-fill-mode: forwards;
+	  /* Initially invisible */
+	  opacity: 0;
+	}
+}
 
 
 

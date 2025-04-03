@@ -19,17 +19,17 @@
 .linked-list a {
   &,
   &:visited {
-	color: var(--scheme-link-color, var(--color-vassar-burgundy)) !important;
-	background-color: var(--scheme-link-bg-color, transparent) !important;
+	--text-color: var(--scheme-link-color, var(--color-vassar-burgundy)) !important;
+	--bg-color: var(--scheme-link-bg-color, transparent) !important;
 	
 	
 	&:hover,
 	&:focus {
-	  color: var(
+	  --text-color: var(
 		--scheme-link-color-hover,
 		var(--scheme-link-color, var(--color-vassar-burgundy))
 	  ) !important;
-	  background-color: var(--scheme-link-bg-color-hover, transparent) !important;
+	  --bg-color: var(--scheme-link-bg-color-hover, transparent) !important;
 	}
   }
 }
