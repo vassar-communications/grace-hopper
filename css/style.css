@@ -140,14 +140,19 @@
 }
 
 .link--cta {
+  --text-underline: none;
   color: var(--scheme-link-color, var(--color-vassar-burgundy));
+  font-variation-settings: "wght" 760;
   display: inline-block;
   line-height: 1.5;
-  padding: 0.5rem 1rem;
+  padding: 0.5rem 0;
   font-size: 1.2rem;
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
   text-decoration: none;
   color: var(--scheme-link-color, var(--color-vassar-burgundy));
+}
+.link--cta:hover, .link--cta:focus {
+  --text-underline: underline;
 }
 .link--cta:after {
   font-weight: bold;
@@ -418,11 +423,11 @@
   padding: var(--content-padding, 0) !important;
 }
 .component--main-content.imageFeatureRow h3.featureImage-title {
-  font-size: var(--h3-featureImage-title-fontSize, clamp(1.2rem, 2.3vw, 2.3rem));
+  font-size: var(--h3-featureImage-title-fontSize, clamp(1.4rem, 2.3vw, 2.3rem));
   color: var(--h3-featureImage-title-color, #641a2b);
   font-variation-settings: "wght" 700;
   letter-spacing: -0.04rem;
-  line-height: 1.1;
+  line-height: 1.2;
 }
 .component--main-content.imageFeatureRow .imageAlignment-left img {
   object-position: left;
@@ -448,6 +453,7 @@
   min-height: 100vh;
 }
 .component--main-content.imageFeatureRow .imageColumn {
+  min-height: 30rem;
   position: relative;
 }
 .component--main-content.imageFeatureRow .imageColumn img {
@@ -604,4 +610,8 @@
   animation-fill-mode: forwards;
   /* Initially invisible */
   opacity: 0;
+}
+
+h2.main-content-display-title {
+  position: relative;
 }

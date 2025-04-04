@@ -9,12 +9,12 @@
 	
 	h3.featureImage-title {
 		$namespace: h3-featureImage-title !global;
-		@include hook(font-size, clamp(1.2rem, 2.3vw, 2.3rem));
+		@include hook(font-size, clamp(1.4rem, 2.3vw, 2.3rem));
 		@include hook(color, #641a2b);
 
 		font-variation-settings: "wght" 700;
 		letter-spacing: -0.04rem;
-		line-height: 1.1;
+		line-height: 1.2;
 	}
 
 	//	default is "center", so doesn't need to be specified
@@ -47,6 +47,7 @@
 
 	//	IMAGE
 	.imageColumn {
+		min-height: 30rem;
 		position: relative;
 	
 		img {
