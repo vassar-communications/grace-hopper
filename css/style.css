@@ -213,6 +213,112 @@
   --accent-bgColor-verylight: rgba(255, 255, 255, 0.2);
 }
 
+/*	carousel
+*/
+/*  Height/aspect ratio
+	This is for carousels where the images are different
+	sizes, like on Africana Studies. If the height of the
+	carousel isn't set, it'll change with each photo, so
+	the controls will jump around.
+*/
+.carousel {
+  background: var(--carousel-bg, #111);
+  height: 0;
+  padding-bottom: var(--carousel-height, 56.25%);
+  position: relative;
+}
+.carousel.ratio-1x1 {
+  --carousel-height: 100%;
+}
+.carousel.ratio-4x3 {
+  --carousel-height: calc(3 / 4 * 100%);
+}
+.carousel.ratio-16x9 {
+  --carousel-height: calc(9 / 16 * 100%);
+}
+.carousel.ratio-21x9 {
+  --carousel-height: calc(9 / 21 * 100%);
+}
+.carousel-inner {
+  height: 100%;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  left: 0;
+}
+.carousel-item {
+  height: 100%;
+  text-align: center;
+}
+.carousel-item img {
+  height: 100%;
+  width: auto;
+}
+.carousel-item div {
+  height: 100%;
+}
+.carousel-indicators {
+  margin: 0;
+}
+
+/*  Controls */
+.carousel-control-prev-icon {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 320 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path fill="%23951829" d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l192 192c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256 246.6 86.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-192 192z"/></svg>');
+  background-size: 0.9rem;
+}
+
+.carousel-control-next-icon {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 320 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path fill="%23951829" d="M310.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L242.7 256 73.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z"/></svg>');
+  background-size: 0.9rem;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  background-color: #fff;
+  border-radius: 0.4rem;
+  border: 1px solid transparent;
+  box-shadow: 0 0.1rem 0.1rem rgba(0, 0, 0, 0.4);
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+  opacity: 1 !important;
+}
+
+.carousel-control-prev:hover .carousel-control-prev-icon,
+.carousel-control-prev:focus .carousel-control-prev-icon {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 320 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path fill="%23ffffff" d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l192 192c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256 246.6 86.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-192 192z"/></svg>');
+  background-size: 0.9rem;
+  background-color: #951829;
+  border-color: #fff;
+}
+
+.carousel-control-next:hover .carousel-control-next-icon,
+.carousel-control-next:focus .carousel-control-next-icon {
+  background-color: #951829;
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 320 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path fill="%23ffffff" d="M310.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L242.7 256 73.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z"/></svg>');
+  background-size: 0.9rem;
+  border-color: #fff;
+}
+
+.carousel-caption {
+  flex-direction: column;
+  justify-content: end;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.8);
+  height: fit-content !important;
+  width: 100%;
+  left: 0;
+}
+
+.carousel-caption *:last-child {
+  margin-bottom: 0;
+}
+
+.carousel-caption * {
+  font-size: 1.1rem;
+}
+
 /*	heroHome
 */
 .component.component--hero-image.hero-home {
