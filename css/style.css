@@ -1,4 +1,14 @@
 @charset "UTF-8";
+:root {
+  --carousel-btn-focus: transparent;
+}
+
+.carousel-height-40rem .carousel {
+  --carousel-height: 40rem;
+  max-width: 80rem;
+  margin: 0 auto;
+}
+
 /* _utilities/_drupal-specific */
 .clearDrupalFormatting {
   padding: var(--component-padding, 0);

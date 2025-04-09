@@ -1,3 +1,16 @@
+:root {
+	  --carousel-btn-focus: transparent;
+}
+
+
+.carousel-height-40rem {
+	.carousel {
+		--carousel-height: 40rem;
+		max-width: 80rem;
+		margin: 0 auto;
+	}
+}
+
 $breakpoints: (
 	"small": 30em,
 	"medium": 50em,
