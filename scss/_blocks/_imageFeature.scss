@@ -7,7 +7,10 @@
 
 	min-height: 100vh;
 	
+	h2.featureImage-title,
 	h3.featureImage-title {
+		--heading-space-below: 0;
+		
 		$namespace: h3-featureImage-title !global;
 		@include hook(font-size, clamp(1.4rem, 2.3vw, 2.3rem));
 		@include hook(color, #641a2b);

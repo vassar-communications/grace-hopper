@@ -8,3 +8,18 @@
 h2.main-content-display-title {
 	position: relative;
 }
+
+
+
+.node--news--teaser:hover .custom-linked-title h2, .node--news--teaser:hover .custom-linked-title .h2 {
+	color: #de1219;
+}
+
+.field--name-title h2 a:hover,
+.custom-linked-title h2 a:hover {
+	--text-color: #de1219 !important;
+}
+.field--name-title h2 a,
+.custom-linked-title h2 a {
+	--text-underline: none;
+}

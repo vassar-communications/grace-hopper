@@ -1,0 +1,11 @@
+/*	heroBasic
+*/
+
+@media (max-width: 40em) {
+	.component.component--hero-image.component--hero-image--default:not(.hero-home) {
+		aspect-ratio: 16/9;
+		padding: 0;
+		display: flex;
+		align-items: end;
+	}
+}
